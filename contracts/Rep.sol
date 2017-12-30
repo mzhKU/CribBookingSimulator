@@ -6,15 +6,15 @@ pragma solidity ^0.4.17;
 
 contract Rep {
 
-    string public name = "Rep";
-    string public symbol = "REP";
-    uint8 public decimals = 0;
-    uint public INITIAL_SUPPLY = 10000;
-
+    string public name           = "Rep";
+    string public symbol         = "REP";
+    uint8  public decimals       = 0;
+    uint   public INITIAL_SUPPLY = 10000;
 
     function Rep() public {
         totalSupply = INITIAL_SUPPLY;
         balances[msg.sender] = INITIAL_SUPPLY;
     }
+
 
 }
