@@ -17,13 +17,13 @@
       <div class="container">
           <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-push-2">
-              <h1 class="text-center">Crib Simulator</h1>
+              <h1 class="text-center">Crib Booking Simulator</h1>
               <hr/>
               <br/>
             </div>
           </div>
 
-          <div class="panel panel-default">
+        <div class="panel panel-default">
 
             <div class="panel-heading">
                 <h3 class="panel-title">Transaction Platform</h3>
@@ -35,146 +35,23 @@
                   <thead>
                     <!-- ROW START -->
                     <tr>
+                      <th>Number</th>
                       <th>Host</th>
                       <th>Guest</th>
                       <th>Transaction</th>
                     </tr>
                   </thead>
-                  <tbody>
 
-                    <!-- ROW START -->
-                    <tr>
-                      <td>
-                          <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle"
-                                    type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="true">
-                              Select Host
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu"
-                                aria-labelledby="dropdownMenu1">
-                              <li><a href="#">Guest 1</a></li>
-                              <li><a href="#">Guest 2</a></li>
-                              <li><a href="#">Guest 3</a></li>
-                            </ul>
-                          </div>
-                      </td>
-                      <td>
-                          <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle"
-                                    type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="true">
-                              Select Guest
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu"
-                                aria-labelledby="dropdownMenu1">
-                              <li><a href="#">Guest 1</a></li>
-                              <li><a href="#">Guest 2</a></li>
-                              <li><a href="#">Guest 3</a></li>
-                            </ul>
-                          </div>
-                      </td>
-                      <td>
-                          <button class="btn btn-primary btn-sm">Sign</button>
-                      </td>
-                    </tr>
-                    <!-- ROW END -->
-
-
-
-                    <!-- ROW START -->
-                    <tr>
-                      <td>
-                          <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle"
-                                    type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="true">
-                              Select Host
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu"
-                                aria-labelledby="dropdownMenu1">
-                              <li><a href="#">Guest 1</a></li>
-                              <li><a href="#">Guest 2</a></li>
-                              <li><a href="#">Guest 3</a></li>
-                            </ul>
-                          </div>
-                      </td>
-                      <td>
-                          <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle"
-                                    type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="true">
-                              Select Guest
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu"
-                                aria-labelledby="dropdownMenu1">
-                              <li><a href="#">Guest 1</a></li>
-                              <li><a href="#">Guest 2</a></li>
-                              <li><a href="#">Guest 3</a></li>
-                            </ul>
-                          </div>
-                      </td>
-                      <td>
-                          <button class="btn btn-primary btn-sm">Sign</button>
-                      </td>
-                    </tr>
-                    <!-- ROW END -->
-
-
-
-                    <!-- ROW START -->
-                    <tr>
-                      <td>
-                          <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle"
-                                    type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="true">
-                              Select Host
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu"
-                                aria-labelledby="dropdownMenu1">
-                              <li><a href="#">Guest 1</a></li>
-                              <li><a href="#">Guest 2</a></li>
-                              <li><a href="#">Guest 3</a></li>
-                            </ul>
-                          </div>
-                      </td>
-                      <td>
-                          <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle"
-                                    type="button" id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="true">
-                              Select Guest
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu"
-                                aria-labelledby="dropdownMenu1">
-                              <li><a href="#">Guest 1</a></li>
-                              <li><a href="#">Guest 2</a></li>
-                              <li><a href="#">Guest 3</a></li>
-                            </ul>
-                          </div>
-                      </td>
-                      <td>
-                          <button class="btn btn-primary btn-sm">Sign</button>
-                      </td>
-                    </tr>
-                    <!-- ROW END -->
+                  <!-- **************************** -->
+                  <!-- Populated by App.populate(). -->
+                  <tbody id="hostGuestTable">
                   </tbody>
+                  <!-- **************************** -->
+
                   <tfoot>
                     <!-- ROW START -->
                     <tr>
+                      <td>Empty</td>
                       <td>Default</td>
                       <td>Default</td>
                       <td><button class="btn btn-default" type="button" id="signAll">
@@ -246,5 +123,6 @@
     <script src="js/web3.min.js"></script>
     <script src="js/truffle-contract.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/platform_template.js"></script>
   </body>
 </html>
