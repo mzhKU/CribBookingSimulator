@@ -45,7 +45,10 @@ App = {
     },
 
     selectClickedEvent: function(event) {
-        console.log("clicked");
+        //var nu = parseInt($(event.target).data('id'));
+        var accountSelected = $(this).html();
+        console.log(accountSelected);
+        console.log($(this).html());
     }
 
     /*

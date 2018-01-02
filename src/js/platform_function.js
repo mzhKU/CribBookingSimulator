@@ -1,99 +1,38 @@
-function getSignButton(i) {
-    var signButton  = '<button class="btn btn-primary btn-sm"';
-    signButton += ' ' + 'type="button"';
-    signButton += ' ' + 'data-id=' + '"' + i + '"' + '>Sign';
-    signButton += '</button>';
-    return signButton;
-}
-
-
 function buildTable(table) {
     // Row
     for(k=0; k<App.accounts.length;k++) {
-    
-        row = "";
-        row += rowOpen;
-    
+        row = rowOpen;
         numberColumn = "";
+        column       = "";
         hostColumn   = "";
         guestColumn  = "";
         buttonColumn = "";
     
-        // -----------------------------
         // Number column.
-        // -----------------------------
-        numberColumn += cellOpen;
-        numberColumn += k;
-        numberColumn += cellClose;
-        // -----------------------------
-    
-    
-        // -----------------------------
+        numberColumn += cellOpen + k + cellClose;
+
         // Host column.
-        // -----------------------------
-        hostColumn += cellOpen;
-        hostColumn += dropDownDivOpen;
-        hostColumn += dropDownButtonHost;
-        hostColumn += "\n";
-    
-        hostColumn += ulOpen;
-        hostColumn += "\n";
-    
+        column += cellOpen + dropDownDivOpen;
+        column += dropDownButtonHost + ulOpen;
         for(i=0; i<App.accounts.length;i++) {
-            hostColumn += liOpen;
-            hostColumn += App.accounts[i];
-            hostColumn += liClose;
-            hostColumn += "\n";
+            hostColumn += liOpen + aOpenWithId(i);
+            hostColumn += App.accounts[i] + aClose + liClose;
         }
-        hostColumn += ulClose;
-        hostColumn += "\n";
-    
-        hostColumn += divClose;
-        hostColumn += "\n";
-    
-        hostColumn += cellClose;
-        hostColumn += "\n";
-        // -----------------------------
-    
-    
-        // -----------------------------
+        column += hostColumn + ulClose + divClose + cellClose;
+
         // Guest column.
-        // -----------------------------
-        guestColumn += cellOpen;
-        guestColumn += dropDownDivOpen;
-        guestColumn += dropDownButtonGuest;
-        guestColumn += "\n";
-    
-        guestColumn += ulOpen;
-        guestColumn += "\n";
-    
+        column += cellOpen + dropDownDivOpen;
+        column += dropDownButtonGuest + ulOpen;
         for(i=0; i<App.accounts.length;i++) {
-            guestColumn += liOpen;
-            guestColumn += App.accounts[i];
-            guestColumn += liClose;
-            guestColumn += "\n";
+            guestColumn += liOpen + aOpenWithId(i);
+            guestColumn += App.accounts[i] + aClose + liClose;
         }
-        guestColumn += ulClose;
-        guestColumn += "\n";
+        column += guestColumn + ulClose + divClose + cellClose;
     
-        guestColumn += divClose;
-        guestColumn += "\n";
-    
-        guestColumn += cellClose;
-        guestColumn += "\n";
-        // -----------------------------
-    
-    
-        // -----------------------------
         // Sign button.
-        // -----------------------------
-        buttonColumn += cellOpen;
-        buttonColumn += getSignButton(k);
-        buttonColumn += cellClose;
-        // -----------------------------
+        buttonColumn += cellOpen + signButton(k) + cellClose;
     
-        row += numberColumn + hostColumn
-        row += guestColumn + buttonColumn + "\n\n\n";
+        row += numberColumn + column + buttonColumn + "\n\n\n";
         row += rowClose;
         table += row;
     
@@ -102,12 +41,10 @@ function buildTable(table) {
     return table;
 }
 
-// ------------------------------------------
-// Callback events.
-// ------------------------------------------
-// function setButtonValueToSelection() {
-//     var selText = $(this).text();
-//     $('.dropdown-toggle ul').html(selText);
-// }
-// ------------------------------------------
-
+function signButton(i) {
+    var signButton  = '<button class="btn btn-primary btn-sm"';
+    signButton += ' ' + 'type="button"';
+    signButton += ' ' + 'data-id=' + '"' + i + '"' + '>Sign';
+    signButton += '</button>';
+    return signButton;
+}
