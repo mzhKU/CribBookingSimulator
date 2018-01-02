@@ -9,7 +9,7 @@ function getSignButton(i) {
 
 function buildTable(table) {
     // Row
-    for(k=0; k<accounts.length;k++) {
+    for(k=0; k<App.accounts.length;k++) {
     
         row = "";
         row += rowOpen;
@@ -39,9 +39,9 @@ function buildTable(table) {
         hostColumn += ulOpen;
         hostColumn += "\n";
     
-        for(i=0; i<accounts.length;i++) {
+        for(i=0; i<App.accounts.length;i++) {
             hostColumn += liOpen;
-            hostColumn += accounts[i];
+            hostColumn += App.accounts[i];
             hostColumn += liClose;
             hostColumn += "\n";
         }
@@ -67,9 +67,9 @@ function buildTable(table) {
         guestColumn += ulOpen;
         guestColumn += "\n";
     
-        for(i=0; i<accounts.length;i++) {
+        for(i=0; i<App.accounts.length;i++) {
             guestColumn += liOpen;
-            guestColumn += accounts[i];
+            guestColumn += App.accounts[i];
             guestColumn += liClose;
             guestColumn += "\n";
         }
@@ -105,9 +105,9 @@ function buildTable(table) {
 // ------------------------------------------
 // Callback events.
 // ------------------------------------------
-function setButtonValueToSelection() {
-    var selText = $(this).text();
-    $('.dropdown-toggle ul').html(selText);
-}
+// function setButtonValueToSelection() {
+//     var selText = $(this).text();
+//     $('.dropdown-toggle ul').html(selText);
+// }
 // ------------------------------------------
 

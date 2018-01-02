@@ -1,5 +1,6 @@
 App = {
     web3Provider: null,
+    accounts: null,
 
     init: function() {
         App.initWeb3();
@@ -10,27 +11,41 @@ App = {
         App.web3Provider = new Web3.providers.HttpProvider(
                                    host);
         web3 = new Web3(App.web3Provider);
+        App.accounts = web3.eth.accounts;
 
         return App.bindEvents();
     },
 
     bindEvents: function() {
-        $(document).on("click", ".btn", App.defaultCallback);
+        // Event for only 'Sign' button.
+        $(document).on("click", ".btn-primary",
+                                App.signClickedEvent);
+
+        // Event for only 'Select' buttons.
+        $(document).on("click", "a.selectAccount",
+                                App.selectClickedEvent);
         return App.populate(event);
     },
 
     populate: function(event) {
         event.preventDefault();
-        // As global variable?
-        accounts = web3.eth.accounts;
+
+        // As global variable? -> Yes, see declarations.
+        // var accounts = web3.eth.accounts;
+
         tab = "";
         table = buildTable(tab);
         $('#hostGuestTable').html(table);
     },
 
-    defaultCallback: function(event) {
+    signClickedEvent: function(event) {
         event.preventDefault();
         var nu = parseInt($(event.target).data('id'));
+        console.log(nu);
+    },
+
+    selectClickedEvent: function(event) {
+        console.log("clicked");
     }
 
     /*
