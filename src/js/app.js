@@ -22,8 +22,8 @@ App = {
                                 App.signClickedEvent);
 
         // Event for only 'Select' buttons.
-        $(document).on("click", "a.selectAccount",
-                                App.selectClickedEvent);
+        $(document).on("click", "a.selectAccount", App.selectClickedEvent);
+
         return App.populate(event);
     },
 
@@ -45,10 +45,10 @@ App = {
     },
 
     selectClickedEvent: function(event) {
-        //var nu = parseInt($(event.target).data('id'));
-        var accountSelected = $(this).html();
-        console.log(accountSelected);
-        console.log($(this).html());
+        var k = $(event.target).html();
+
+        // The button is the sibling of the unordered list.
+        console.log($(event.target).parent().parent().siblings().html(k));
     }
 
     /*

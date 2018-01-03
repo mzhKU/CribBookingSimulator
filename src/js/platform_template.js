@@ -26,13 +26,20 @@ var dropDownButtonGuest = dropDownButtonHTML + '>' + 'Select Guest';
 dropDownButtonHost  += '<span class="caret"></span></button>';
 dropDownButtonGuest += '<span class="caret"></span></button>';
 
-var ulOpen = '<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">';
+var ulClass          = 'class="dropdown-menu "';
+var ulAriaLabelledBy = 'aria-labelledby="dropdownMenu1"';
+var ulOpen = '<ul ' + ulClass + ulAriaLabelledBy + '>';
+
 var liOpen = '<li>';
 var aClose = '</a>';
 var liClose = '</li>';
 
 function aOpenWithId(i) {
-    return '<a class="selectAccount" href="#" id="' + i + '"' + '>';
+    s  = '<a class="selectAccount" href="#" ';
+    s += 'data-link-id="';
+    s += i
+    s += '"' + '>';
+    return s;
 }
 
 var ulClose = '</ul>';
