@@ -4,17 +4,15 @@ pragma solidity ^0.4.17;
 
 // contract TutorialToken is StandardToken {
 
-contract Rep {
+contract Sign {
 
-    string public name           = "Rep";
-    string public symbol         = "REP";
-    uint8  public decimals       = 0;
-    uint   public INITIAL_SUPPLY = 10000;
+    /* On sign event, a crib is associated with
+    the address of a tenant. Initialized with '0x0'. */
+    address[10] public cribs;
 
-    function Rep() public {
-        totalSupply = INITIAL_SUPPLY;
-        balances[msg.sender] = INITIAL_SUPPLY;
+    function sign(uint cribId) public returns (uint) {
+        cribs[cribId] = msg.sender;
+        return cribId;
     }
-
 
 }

@@ -41,14 +41,25 @@ App = {
     signClickedEvent: function(event) {
         event.preventDefault();
         var nu = parseInt($(event.target).data('id'));
-        console.log(nu);
+        console.log("Event Nr.: " + nu);
     },
 
     selectClickedEvent: function(event) {
         var k = $(event.target).html();
 
         // The button is the sibling of the unordered list.
-        console.log($(event.target).parent().parent().siblings().html('<span class="innerSpan" style="width: 100px; display: inline-block; overflow: hidden;";>' + k + '</span>' + '<span class="caret"></span>'));
+        // <a> -> <li> -> <ul> + <button> (-> <div>)
+        var eventHTML = "<span ";
+        var eventHTMLClass = 'class="innerSpan" ';
+        var eventHTMLStyle = 'style="width: 100px; ';
+        eventHTMLStyle += 'display: inline-block; ';
+        eventHTMLStyle += 'overflow: hidden;" ';
+        eventHTML += eventHTMLClass + eventHTMLStyle;
+        eventHTML += '>' + k + '</span>';
+        eventHTML += '<span class="caret"></span';
+        var t = $(event.target).parent().parent().siblings();
+        console.log(eventHTML);
+        t.html(eventHTML);
     }
 
     /*
