@@ -20,7 +20,11 @@ dropDownButtonHTML    += dropDownDataToggle;
 dropDownButtonHTML    += dropDownAriaHasPopup;
 dropDownButtonHTML    += dropDownAriaExpanded;
 
-var dropDownButtonHost  = dropDownButtonHTML + '>' + 'Select Host';
+// var dropDownButtonHost  = dropDownButtonHTML + '>' + 'Select Host';
+var dropDownButtonHost  = dropDownButtonHTML + '>'
+dropDownButtonHost += '<span class="innerSpan">Select Host</span>';
+//var dropDownButtonHost  = dropDownButtonHTML + '>' + '<div></div>';
+//var dropDownButtonHost  = dropDownButtonHTML + 'Select Host';
 var dropDownButtonGuest = dropDownButtonHTML + '>' + 'Select Guest';
 
 dropDownButtonHost  += '<span class="caret"></span></button>';

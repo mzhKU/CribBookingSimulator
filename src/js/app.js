@@ -48,7 +48,7 @@ App = {
         var k = $(event.target).html();
 
         // The button is the sibling of the unordered list.
-        console.log($(event.target).parent().parent().siblings().html(k));
+        console.log($(event.target).parent().parent().siblings().html('<span class="innerSpan" style="width: 100px; display: inline-block; overflow: hidden;";>' + k + '</span>' + '<span class="caret"></span>'));
     }
 
     /*
