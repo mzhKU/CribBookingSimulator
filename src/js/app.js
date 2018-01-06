@@ -1,6 +1,7 @@
 App = {
     web3Provider: null,
     accounts: null,
+    contracts: {},
 
     init: function() {
         App.initWeb3();
@@ -13,6 +14,17 @@ App = {
         web3 = new Web3(App.web3Provider);
         App.accounts = web3.eth.accounts;
 
+        return App.initContract();
+    },
+
+    initContract: function() {
+        $.getJSON('Crib.json', function(data) {
+            var CribArtifact = data; 
+            App.contracts.Crib = TruffleContract(
+                CribArtifact);
+            App.contracts.Crib.setProvider(
+                App.web3Provider);
+        });
         return App.bindEvents();
     },
 
@@ -22,7 +34,8 @@ App = {
                                 App.signClickedEvent);
 
         // Event for only 'Select' buttons.
-        $(document).on("click", "a.selectAccount", App.selectClickedEvent);
+        $(document).on("click", "a.selectAccount",
+                       App.selectClickedEvent);
 
         return App.populate(event);
     },
@@ -40,14 +53,24 @@ App = {
 
     signClickedEvent: function(event) {
         event.preventDefault();
-        var nu = parseInt($(event.target).data('id'));
-        console.log("Event Nr.: " + nu);
+        var eventNr = parseInt(
+                        $(event.target).data('id')
+        );
+        var crib = $(event.target).parent();
+        crib = crib.siblings('.crib');
+        crib = crib.children();
+        crib = crib.children('.btn');
+        crib = crib.children('.innerSpan').html();
+        crib = parseInt(crib.split(":")[1]);
+        // console.log(crib);
+
+        
     },
 
     selectClickedEvent: function(event) {
         var k = $(event.target).html();
 
-        // The button is the sibling of the unordered list.
+        // Button is the sibling of the unordered list.
         // <a> -> <li> -> <ul> + <button> (-> <div>)
         var eventHTML = "<span ";
         var eventHTMLClass = 'class="innerSpan" ';
@@ -58,13 +81,11 @@ App = {
         eventHTML += '>' + k + '</span>';
         eventHTML += '<span class="caret"></span';
         var t = $(event.target).parent().parent().siblings();
-        console.log(eventHTML);
+        // console.log(eventHTML);
         t.html(eventHTML);
     }
 
     /*
-    contracts:    {},
-    initContract: function() {},
     // Transfer, Transaction, ..., see ERC20Basic
     handleX: function(event) {},
     getBalances: function() {},

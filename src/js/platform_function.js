@@ -11,12 +11,14 @@ function buildTable(table) {
         // Number column.
         numberColumn += cellOpen + k + cellClose;
 
-        // Host column.
-        column += cellOpen + dropDownDivOpen;
+        // Crib column.
+        // column += cellOpen + dropDownDivOpen;
+        column += cellOpenCrib + dropDownDivOpen;
         column += dropDownButtonHost + ulOpen;
         for(i=0; i<App.accounts.length;i++) {
             hostColumn += liOpen + aOpenWithId(i);
-            hostColumn += App.accounts[i] + aClose + liClose;
+            //hostColumn += App.accounts[i] + aClose + liClose;
+            hostColumn += "Crib Id: " + i + aClose + liClose;
         }
         column += hostColumn + ulClose + divClose + cellClose;
 
@@ -30,9 +32,10 @@ function buildTable(table) {
         column += guestColumn + ulClose + divClose + cellClose;
     
         // Sign button.
-        buttonColumn += cellOpen + signButton(k) + cellClose;
+        buttonColumn += cellOpenSign + signButton(k);
+        buttonColumn += cellClose;
     
-        row += numberColumn + column + buttonColumn + "\n\n\n";
+        row += numberColumn + column + buttonColumn;
         row += rowClose;
         table += row;
     

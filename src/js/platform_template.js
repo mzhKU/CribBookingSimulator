@@ -3,6 +3,9 @@
 // ------------------------------------------
 var rowOpen = '<tr>';
 var cellOpen = '<td>';
+var cellOpenCrib = '<td class="crib">';
+var cellOpen = '<td>';
+var cellOpenSign = '<td class="sign">';
 var cellClose = '</td>';
 var dropDownDivOpen = '<div class="dropdown">';
 
@@ -20,15 +23,12 @@ dropDownButtonHTML    += dropDownDataToggle;
 dropDownButtonHTML    += dropDownAriaHasPopup;
 dropDownButtonHTML    += dropDownAriaExpanded;
 
-// var dropDownButtonHost  = dropDownButtonHTML + '>' + 'Select Host';
 var dropDownButtonHost  = dropDownButtonHTML + '>'
-dropDownButtonHost += '<span class="innerSpan">Select Host</span>';
-//var dropDownButtonHost  = dropDownButtonHTML + '>' + '<div></div>';
-//var dropDownButtonHost  = dropDownButtonHTML + 'Select Host';
+dropDownButtonHost += '<span class="innerSpan">Select Crib</span>';
 var dropDownButtonGuest = dropDownButtonHTML + '>' + 'Select Guest';
 
-dropDownButtonHost  += '<span class="caret"></span></button>';
-dropDownButtonGuest += '<span class="caret"></span></button>';
+dropDownButtonHost  += '  <span class="caret"></span></button>';
+dropDownButtonGuest += '  <span class="caret"></span></button>';
 
 var ulClass          = 'class="dropdown-menu "';
 var ulAriaLabelledBy = 'aria-labelledby="dropdownMenu1"';

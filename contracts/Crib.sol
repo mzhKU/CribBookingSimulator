@@ -1,10 +1,6 @@
 pragma solidity ^0.4.17;
 
-//import 'zeppelin-solidity/contracts/token/StandardToken.sol';
-
-// contract TutorialToken is StandardToken {
-
-contract Sign {
+contract Crib {
 
     /* On sign event, a crib is associated with
     the address of a tenant. Initialized with '0x0'. */
