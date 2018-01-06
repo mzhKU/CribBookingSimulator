@@ -23,7 +23,7 @@ function buildTable(table) {
         column += hostColumn + ulClose + divClose + cellClose;
 
         // Guest column.
-        column += cellOpen + dropDownDivOpen;
+        column += cellOpenGuest + dropDownDivOpen;
         column += dropDownButtonGuest + ulOpen;
         for(i=0; i<App.accounts.length;i++) {
             guestColumn += liOpen + aOpenWithId(i);

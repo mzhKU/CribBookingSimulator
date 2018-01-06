@@ -51,20 +51,47 @@ App = {
         $('#hostGuestTable').html(table);
     },
 
+    // Handle 'sign' button clicked event.
     signClickedEvent: function(event) {
         event.preventDefault();
         var eventNr = parseInt(
                         $(event.target).data('id')
         );
-        var crib = $(event.target).parent();
-        crib = crib.siblings('.crib');
-        crib = crib.children();
-        crib = crib.children('.btn');
-        crib = crib.children('.innerSpan').html();
-        crib = parseInt(crib.split(":")[1]);
-        // console.log(crib);
 
-        
+        /* -------------------------------- */
+        // Get crib.
+        var cribId = $(event.target).parent();
+        cribId = cribId.siblings('.crib');
+        cribId = cribId.children();
+        cribId = cribId.children('.btn');
+        cribId = cribId.children('.innerSpan').html();
+        cribId = parseInt(cribId.split(":")[1]);
+        // console.log(cribId);
+        /* -------------------------------- */
+
+        /* -------------------------------- */
+        // Get account that signed booking.
+        /* -------------------------------- */
+        var guest = $(event.target).parent();
+        guest = guest.siblings('.guest');
+        guest = guest.children();
+        guest = guest.children('.btn');
+        guest = guest.children('.innerSpan').html();
+        // console.log(guest);
+        /* -------------------------------- */
+
+        /* -------------------------------- */
+        // Sign on contract.
+        /* -------------------------------- */
+        App.contracts.Crib.deployed().then(
+            function(instance) {
+                cribInstance = instance;
+                return cribInstance.sign(cribId,
+                    {from: guest});
+        }).then(function(result) {
+            console.log(result);
+        });
+        /* -------------------------------- */
     },
 
     selectClickedEvent: function(event) {

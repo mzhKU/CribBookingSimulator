@@ -4,6 +4,7 @@
 var rowOpen = '<tr>';
 var cellOpen = '<td>';
 var cellOpenCrib = '<td class="crib">';
+var cellOpenGuest = '<td class="guest">';
 var cellOpen = '<td>';
 var cellOpenSign = '<td class="sign">';
 var cellClose = '</td>';
