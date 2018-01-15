@@ -6,9 +6,30 @@ contract Crib {
     the address of a tenant. Initialized with '0x0'. */
     address[10] public cribs;
 
+    /* ------------------------------- */
+    // Branch 'transactionCounter'.
+    uint8 public transactionCounter;
+
+    function Crib() public {
+        transactionCounter = 0;
+    }
+
+    function getTransactionCounter() public view returns (uint8) {
+        return transactionCounter;
+    }
+    /* ------------------------------- */
+
     function sign(uint cribId) public returns (uint) {
+
+        /* ------------------------------- */
+        // Branch 'transactionCounter'.
+        transactionCounter += 1;
+        /* ------------------------------- */
+
         cribs[cribId] = msg.sender;
         return cribId;
     }
+
+    
 
 }

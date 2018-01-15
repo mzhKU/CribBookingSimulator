@@ -92,6 +92,15 @@ App = {
             console.log(result);
         });
         /* -------------------------------- */
+
+        /* -------------------------------- */
+        // Increase counter.
+        /* -------------------------------- */
+        var cnt = App.contracts.Crib.deployed().then(
+            function(instance) {
+                console.log(instance.transactionCounter.call());});
+        console.log("Transaction Counter: ", cnt);
+        /* -------------------------------- */
     },
 
     selectClickedEvent: function(event) {
