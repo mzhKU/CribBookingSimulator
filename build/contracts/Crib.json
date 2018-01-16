@@ -16,7 +16,7 @@
       "type": "function"
     },
     {
-      "constant": true,
+      "constant": false,
       "inputs": [],
       "name": "getTransactionCounter",
       "outputs": [
@@ -26,7 +26,7 @@
         }
       ],
       "payable": false,
-      "stateMutability": "view",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -74,11 +74,11 @@
       "type": "constructor"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6000600a60006101000a81548160ff021916908360ff1602179055506102718061003a6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806314e887e8146100675780632dd1b86b146100965780632fb1b25f146100c557806367ebccd1146100fc575b600080fd5b341561007257600080fd5b61007a61015f565b604051808260ff1660ff16815260200191505060405180910390f35b34156100a157600080fd5b6100a9610172565b604051808260ff1660ff16815260200191505060405180910390f35b34156100d057600080fd5b6100e66004808035906020019091905050610189565b6040518082815260200191505060405180910390f35b341561010757600080fd5b61011d6004808035906020019091905050610210565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600a60009054906101000a900460ff1681565b6000600a60009054906101000a900460ff16905090565b60006001600a60008282829054906101000a900460ff160192506101000a81548160ff021916908360ff16021790555033600083600a811015156101c957fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550819050919050565b600081600a8110151561021f57fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058207a24e23d126430eacdb5744e0aa77642b30a4ffb5740bf5445c94e8887d517840029",
-  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806314e887e8146100675780632dd1b86b146100965780632fb1b25f146100c557806367ebccd1146100fc575b600080fd5b341561007257600080fd5b61007a61015f565b604051808260ff1660ff16815260200191505060405180910390f35b34156100a157600080fd5b6100a9610172565b604051808260ff1660ff16815260200191505060405180910390f35b34156100d057600080fd5b6100e66004808035906020019091905050610189565b6040518082815260200191505060405180910390f35b341561010757600080fd5b61011d6004808035906020019091905050610210565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600a60009054906101000a900460ff1681565b6000600a60009054906101000a900460ff16905090565b60006001600a60008282829054906101000a900460ff160192506101000a81548160ff021916908360ff16021790555033600083600a811015156101c957fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550819050919050565b600081600a8110151561021f57fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058207a24e23d126430eacdb5744e0aa77642b30a4ffb5740bf5445c94e8887d517840029",
-  "sourceMap": "26:782:0:-;;;298:62;;;;;;;;352:1;331:18;;:22;;;;;;;;;;;;;;;;;;26:782;;;;;;",
-  "deployedSourceMap": "26:782:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;260:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;366:103;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;517:282;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;151:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;260:31;;;;;;;;;;;;;:::o;366:103::-;420:5;444:18;;;;;;;;;;;437:25;;366:103;:::o;517:282::-;560:4;685:1;663:18;;:23;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;759:10;743:5;749:6;743:13;;;;;;;;;;;:26;;;;;;;;;;;;;;;;;;786:6;779:13;;517:282;;;:::o;151:24::-;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.17;\n\ncontract Crib {\n\n    /* On sign event, a crib is associated with\n    the address of a tenant. Initialized with '0x0'. */\n    address[10] public cribs;\n\n    /* ------------------------------- */\n    // Branch 'transactionCounter'.\n    uint8 public transactionCounter;\n\n    function Crib() public {\n        transactionCounter = 0;\n    }\n\n    function getTransactionCounter() public view returns (uint8) {\n        return transactionCounter;\n    }\n    /* ------------------------------- */\n\n    function sign(uint cribId) public returns (uint) {\n\n        /* ------------------------------- */\n        // Branch 'transactionCounter'.\n        transactionCounter += 1;\n        /* ------------------------------- */\n\n        cribs[cribId] = msg.sender;\n        return cribId;\n    }\n\n    \n\n}\n",
+  "bytecode": "0x6060604052341561000f57600080fd5b6000600a60006101000a81548160ff021916908360ff1602179055506102718061003a6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806314e887e8146100675780632dd1b86b146100965780632fb1b25f146100c557806367ebccd1146100fc575b600080fd5b341561007257600080fd5b61007a61015f565b604051808260ff1660ff16815260200191505060405180910390f35b34156100a157600080fd5b6100a9610172565b604051808260ff1660ff16815260200191505060405180910390f35b34156100d057600080fd5b6100e66004808035906020019091905050610189565b6040518082815260200191505060405180910390f35b341561010757600080fd5b61011d6004808035906020019091905050610210565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600a60009054906101000a900460ff1681565b6000600a60009054906101000a900460ff16905090565b60006001600a60008282829054906101000a900460ff160192506101000a81548160ff021916908360ff16021790555033600083600a811015156101c957fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550819050919050565b600081600a8110151561021f57fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820b9c015ad2220276bed7960326452ac8922ecfb6690c64c5d45746b3afd0d3d4e0029",
+  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806314e887e8146100675780632dd1b86b146100965780632fb1b25f146100c557806367ebccd1146100fc575b600080fd5b341561007257600080fd5b61007a61015f565b604051808260ff1660ff16815260200191505060405180910390f35b34156100a157600080fd5b6100a9610172565b604051808260ff1660ff16815260200191505060405180910390f35b34156100d057600080fd5b6100e66004808035906020019091905050610189565b6040518082815260200191505060405180910390f35b341561010757600080fd5b61011d6004808035906020019091905050610210565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600a60009054906101000a900460ff1681565b6000600a60009054906101000a900460ff16905090565b60006001600a60008282829054906101000a900460ff160192506101000a81548160ff021916908360ff16021790555033600083600a811015156101c957fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550819050919050565b600081600a8110151561021f57fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a72305820b9c015ad2220276bed7960326452ac8922ecfb6690c64c5d45746b3afd0d3d4e0029",
+  "sourceMap": "26:770:0:-;;;298:62;;;;;;;;352:1;331:18;;:22;;;;;;;;;;;;;;;;;;26:770;;;;;;",
+  "deployedSourceMap": "26:770:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;260:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;366:91;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;505:282;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;151:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;260:31;;;;;;;;;;;;;:::o;366:91::-;408:5;432:18;;;;;;;;;;;425:25;;366:91;:::o;505:282::-;548:4;673:1;651:18;;:23;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;747:10;731:5;737:6;731:13;;;;;;;;;;;:26;;;;;;;;;;;;;;;;;;774:6;767:13;;505:282;;;:::o;151:24::-;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.17;\n\ncontract Crib {\n\n    /* On sign event, a crib is associated with\n    the address of a tenant. Initialized with '0x0'. */\n    address[10] public cribs;\n\n    /* ------------------------------- */\n    // Branch 'transactionCounter'.\n    uint8 public transactionCounter;\n\n    function Crib() public {\n        transactionCounter = 0;\n    }\n\n    function getTransactionCounter() returns (uint8) {\n        return transactionCounter;\n    }\n    /* ------------------------------- */\n\n    function sign(uint cribId) public returns (uint) {\n\n        /* ------------------------------- */\n        // Branch 'transactionCounter'.\n        transactionCounter += 1;\n        /* ------------------------------- */\n\n        cribs[cribId] = msg.sender;\n        return cribId;\n    }\n\n    \n\n}\n",
   "sourcePath": "/home/mzh/projects/092_reptoken/contracts/Crib.sol",
   "ast": {
     "attributes": {
@@ -306,7 +306,7 @@
           },
           {
             "attributes": {
-              "constant": true,
+              "constant": false,
               "implemented": true,
               "isConstructor": false,
               "modifiers": [
@@ -315,7 +315,7 @@
               "name": "getTransactionCounter",
               "payable": false,
               "scope": 45,
-              "stateMutability": "view",
+              "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
             },
@@ -352,17 +352,17 @@
                         },
                         "id": 17,
                         "name": "ElementaryTypeName",
-                        "src": "420:5:0"
+                        "src": "408:5:0"
                       }
                     ],
                     "id": 18,
                     "name": "VariableDeclaration",
-                    "src": "420:5:0"
+                    "src": "408:5:0"
                   }
                 ],
                 "id": 19,
                 "name": "ParameterList",
-                "src": "419:7:0"
+                "src": "407:7:0"
               },
               {
                 "children": [
@@ -383,22 +383,22 @@
                         },
                         "id": 20,
                         "name": "Identifier",
-                        "src": "444:18:0"
+                        "src": "432:18:0"
                       }
                     ],
                     "id": 21,
                     "name": "Return",
-                    "src": "437:25:0"
+                    "src": "425:25:0"
                   }
                 ],
                 "id": 22,
                 "name": "Block",
-                "src": "427:42:0"
+                "src": "415:42:0"
               }
             ],
             "id": 23,
             "name": "FunctionDefinition",
-            "src": "366:103:0"
+            "src": "366:91:0"
           },
           {
             "attributes": {
@@ -437,17 +437,17 @@
                         },
                         "id": 24,
                         "name": "ElementaryTypeName",
-                        "src": "531:4:0"
+                        "src": "519:4:0"
                       }
                     ],
                     "id": 25,
                     "name": "VariableDeclaration",
-                    "src": "531:11:0"
+                    "src": "519:11:0"
                   }
                 ],
                 "id": 26,
                 "name": "ParameterList",
-                "src": "530:13:0"
+                "src": "518:13:0"
               },
               {
                 "children": [
@@ -470,17 +470,17 @@
                         },
                         "id": 27,
                         "name": "ElementaryTypeName",
-                        "src": "560:4:0"
+                        "src": "548:4:0"
                       }
                     ],
                     "id": 28,
                     "name": "VariableDeclaration",
-                    "src": "560:4:0"
+                    "src": "548:4:0"
                   }
                 ],
                 "id": 29,
                 "name": "ParameterList",
-                "src": "559:6:0"
+                "src": "547:6:0"
               },
               {
                 "children": [
@@ -509,7 +509,7 @@
                             },
                             "id": 30,
                             "name": "Identifier",
-                            "src": "663:18:0"
+                            "src": "651:18:0"
                           },
                           {
                             "attributes": {
@@ -526,17 +526,17 @@
                             },
                             "id": 31,
                             "name": "Literal",
-                            "src": "685:1:0"
+                            "src": "673:1:0"
                           }
                         ],
                         "id": 32,
                         "name": "Assignment",
-                        "src": "663:23:0"
+                        "src": "651:23:0"
                       }
                     ],
                     "id": 33,
                     "name": "ExpressionStatement",
-                    "src": "663:23:0"
+                    "src": "651:23:0"
                   },
                   {
                     "children": [
@@ -573,7 +573,7 @@
                                 },
                                 "id": 34,
                                 "name": "Identifier",
-                                "src": "743:5:0"
+                                "src": "731:5:0"
                               },
                               {
                                 "attributes": {
@@ -587,12 +587,12 @@
                                 },
                                 "id": 35,
                                 "name": "Identifier",
-                                "src": "749:6:0"
+                                "src": "737:6:0"
                               }
                             ],
                             "id": 36,
                             "name": "IndexAccess",
-                            "src": "743:13:0"
+                            "src": "731:13:0"
                           },
                           {
                             "attributes": {
@@ -618,22 +618,22 @@
                                 },
                                 "id": 37,
                                 "name": "Identifier",
-                                "src": "759:3:0"
+                                "src": "747:3:0"
                               }
                             ],
                             "id": 38,
                             "name": "MemberAccess",
-                            "src": "759:10:0"
+                            "src": "747:10:0"
                           }
                         ],
                         "id": 39,
                         "name": "Assignment",
-                        "src": "743:26:0"
+                        "src": "731:26:0"
                       }
                     ],
                     "id": 40,
                     "name": "ExpressionStatement",
-                    "src": "743:26:0"
+                    "src": "731:26:0"
                   },
                   {
                     "attributes": {
@@ -652,32 +652,32 @@
                         },
                         "id": 41,
                         "name": "Identifier",
-                        "src": "786:6:0"
+                        "src": "774:6:0"
                       }
                     ],
                     "id": 42,
                     "name": "Return",
-                    "src": "779:13:0"
+                    "src": "767:13:0"
                   }
                 ],
                 "id": 43,
                 "name": "Block",
-                "src": "566:233:0"
+                "src": "554:233:0"
               }
             ],
             "id": 44,
             "name": "FunctionDefinition",
-            "src": "517:282:0"
+            "src": "505:282:0"
           }
         ],
         "id": 45,
         "name": "ContractDefinition",
-        "src": "26:782:0"
+        "src": "26:770:0"
       }
     ],
     "id": 46,
     "name": "SourceUnit",
-    "src": "0:809:0"
+    "src": "0:797:0"
   },
   "compiler": {
     "name": "solc",
@@ -708,8 +708,13 @@
       "events": {},
       "links": {},
       "address": "0x73733400b36b277d19a69df1b3faaf74927c828b"
+    },
+    "1516079387124": {
+      "events": {},
+      "links": {},
+      "address": "0x62df8c2d6d6e3fa8fea7791899991f3aee5f692d"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-15T06:49:21.481Z"
+  "updatedAt": "2018-01-16T05:16:08.483Z"
 }

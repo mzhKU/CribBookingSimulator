@@ -14,7 +14,7 @@ contract Crib {
         transactionCounter = 0;
     }
 
-    function getTransactionCounter() public view returns (uint8) {
+    function getTransactionCounter() returns (uint8) {
         return transactionCounter;
     }
     /* ------------------------------- */

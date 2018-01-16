@@ -96,10 +96,11 @@ App = {
         /* -------------------------------- */
         // Increase counter.
         /* -------------------------------- */
-        var cnt = App.contracts.Crib.deployed().then(
+        App.contracts.Crib.deployed().then(
             function(instance) {
-                console.log(instance.transactionCounter.call());});
-        console.log("Transaction Counter: ", cnt);
+                return instance.getTransactionCounter.call();
+            }
+        );
         /* -------------------------------- */
     },
 
