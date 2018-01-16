@@ -99,7 +99,8 @@ App = {
         App.contracts.Crib.deployed().then(function(instance) {
             return instance.getTransactionCounter.call();
         }).then(function(balance) {
-            console.log(balance);
+            var cnt = balance.c[0];
+            $('#transactionCounter').html(cnt);
         });
         /* -------------------------------- */
     },
