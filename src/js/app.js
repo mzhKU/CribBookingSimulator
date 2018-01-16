@@ -92,6 +92,17 @@ App = {
             console.log(result);
         });
         /* -------------------------------- */
+
+        /* -------------------------------- */
+        // Increase counter.
+        /* -------------------------------- */
+        App.contracts.Crib.deployed().then(function(instance) {
+            return instance.getTransactionCounter.call();
+        }).then(function(balance) {
+            var cnt = balance.c[0];
+            $('#transactionCounter').html(cnt);
+        });
+        /* -------------------------------- */
     },
 
     selectClickedEvent: function(event) {
