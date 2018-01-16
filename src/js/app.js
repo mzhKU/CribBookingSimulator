@@ -96,11 +96,11 @@ App = {
         /* -------------------------------- */
         // Increase counter.
         /* -------------------------------- */
-        App.contracts.Crib.deployed().then(
-            function(instance) {
-                return instance.getTransactionCounter.call();
-            }
-        );
+        App.contracts.Crib.deployed().then(function(instance) {
+            return instance.getTransactionCounter.call();
+        }).then(function(balance) {
+            console.log(balance);
+        });
         /* -------------------------------- */
     },
 
