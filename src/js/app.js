@@ -89,7 +89,9 @@ App = {
                 return cribInstance.sign(cribId,
                     {from: guest});
         }).then(function(result) {
-            console.log(result);
+            // result.tx, result.logs, result.receipt 
+            // console.log(result);
+            return true;
         });
         /* -------------------------------- */
 
@@ -97,9 +99,10 @@ App = {
         // Increase counter.
         /* -------------------------------- */
         App.contracts.Crib.deployed().then(function(instance) {
+            // meta = instance;
             return instance.getTransactionCounter.call();
         }).then(function(balance) {
-            var cnt = balance.c[0];
+            var cnt = balance;
             $('#transactionCounter').html(cnt);
         });
         /* -------------------------------- */
