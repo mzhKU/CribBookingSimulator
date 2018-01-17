@@ -37,7 +37,25 @@ App = {
         $(document).on("click", "a.selectAccount",
                        App.selectClickedEvent);
 
+        $(document).on("click", "button.btn-init", App.randomInit);
+
         return App.populate(event);
+    },
+
+    randomInit: function(event) {
+        event.preventDefault();
+
+        var tableRows = $(event.target).parent();
+        tableRows = tableRows.siblings('.panel-body');
+        tableRows = tableRows.children('.table');
+        tableRows = tableRows.children('#hostGuestTable').children();
+
+        tableRows.each(function(i, row) {
+            var $row = $(row);
+            $guestButton = $row.find('td[class="crib"]');
+            $guestButton = $guestButton.children().children('.dropdown-menu');
+            console.log($guestButton);
+        });
     },
 
     populate: function(event) {
